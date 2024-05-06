@@ -9,7 +9,7 @@
 // Task 3: Create an array to store book objects and implement functions to add new books and search for books by title or author.
 // Task 4: Create functions that utilize the filter method to filter out books that contain more than 100 pages and the map method to add "Title: " and "Author: " to the book's title and author properties respectably.
 
-class Library {
+class Book {
 
     constructor(title, author, pages){
         this.title = title;
@@ -22,19 +22,19 @@ class Library {
     }
 }
 
-let book1 = new Library('The Alchemist', 'Paulo Coehlo', 197)
-let book2 = new Library('The Giver', 'Lois Lowry', 195)
+let book1 = new Book('The Alchemist', 'Paulo Coehlo', 197)
+let book2 = new Book('The Giver', 'Lois Lowry', 195)
 book1.displayBook()
 book2.displayBook()
 
-class Library2 {
+class Library {
 
     constructor(){
         this.books = []
     }
 
     addBook = (title, author, pages) => {
-        let newBook = new Library(title, author, pages);
+        let newBook = new Book(title, author, pages);
         this.books.push(newBook);
         // for (let book of this.books){
         //     console.log(book)
@@ -65,7 +65,7 @@ class Library2 {
 
 }
 
-let library = new Library2();
+let library = new Library();
 
 library.addBook('The Alchemist', 'Paulo Coehlo', 197);
 library.addBook('The Giver', 'Lois Lowry', 195);
@@ -111,6 +111,13 @@ class Account {
     earnings(interest, months){
         let compound = ((interest * this.balance)**months ) + this.balance
         // C.I. = Principal (1 + Rate)^Time − Principal
+        return compound
     }
 }
 
+let book5 = new Book('The Alchemist', 'Paulo Coehlo', 197)
+let account = new Account('505054578', 550, 'Jesica')
+account.deposit(500)
+account.withdrawal(8000)
+account.withdrawal(40)
+console.log(account.earnings(4,8))
