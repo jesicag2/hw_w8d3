@@ -33,30 +33,34 @@ class Library2 {
         this.books = []
     }
 
-    // constructor(title, author, pages){
-    //     this.title = title;
-    //     this.author = author;
-    //     this.pages = pages;
-    // }
-
-    // displayBook = () => {
-    //     console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}`)
-    // }
-
-    addBook(title, author, pages){
-        let newBook = new Library2(title, author, pages);
+    addBook = (title, author, pages) => {
+        let newBook = new Library(title, author, pages);
         this.books.push(newBook);
+        // for (let book of this.books){
+        //     console.log(book)
+        //     book.displayBook();
+        // }
         console.log("Book has been added!");
     }
 
-    searchByTitle(title){
+    searchByTitle = (title) => {
         let foundTitle = this.books.filter(book => book.title.toLowerCase() == title.toLowerCase());
         return foundTitle;
     }
 
-    searchByAuthor(author){
+    searchByAuthor = (author) => {
         let foundAuthor = this.books.filter(book => book.author.toLowerCase() == author.toLowerCase());
         return foundAuthor;
+    }
+
+    filterByPages = () => {
+        let filteredPages = this.books.filter(book => book.pages > 100)
+        return filteredPages;
+    }
+
+    addTitleAuthor = () => {
+        let title = this.books.map(book => "Title: " + book.title + " Author: " + book.author)
+        return title
     }
 
 }
@@ -66,6 +70,10 @@ let library = new Library2();
 library.addBook('The Alchemist', 'Paulo Coehlo', 197);
 library.addBook('The Giver', 'Lois Lowry', 195);
 library.addBook('1984', 'George Orwell', 328);
+library.addBook('The Four Agreements', 'Don Miguel Ruiz', 90)
+console.log(library.books)
+console.log(library.filterByPages());
+console.log(library.addTitleAuthor())
 
 
 
@@ -101,7 +109,7 @@ class Account {
     }
 
     earnings(interest, months){
-        pass
+        let compound = ((interest * this.balance)**months ) + this.balance
         // C.I. = Principal (1 + Rate)^Time − Principal
     }
 }
